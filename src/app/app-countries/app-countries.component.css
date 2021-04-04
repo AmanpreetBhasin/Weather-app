@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+.mat-row.hovered {
+    background: #eee;
+}
+
+.mat-row.highlighted {
+  background: #ccc;
+}
+
+.button-div {
+    text-align: center;
+    margin-top: 50px;
+}
+button {
+    font-size: 20px;
+}
+mat-spinner {
+position:fixed;
+top:calc(50% - 50px);
+left:calc(50% - 50px);
+z-index:999;
+}

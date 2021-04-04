@@ -1,0 +1,71 @@
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+<a href="/home">< Back to Home</a>
+<div *ngIf="loaded">
+    <h2>Weather in {{weather.name}}</h2>
+<mat-divider></mat-divider>
+<mat-card>
+    <mat-card-title>{{weather.weather[0].main}}</mat-card-title>
+    <mat-card-subtitle>{{weather.weather[0].description}}</mat-card-subtitle>
+    <mat-radio-group aria-label="Select an option" (change)="changeUnit($event)" [value]="units">
+        <mat-radio-button value="metric">Metric Units</mat-radio-button>
+        <mat-radio-button value="imperial">Imperial Units</mat-radio-button>
+    </mat-radio-group>
+</mat-card>
+<mat-accordion multi=true>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Temperature
+        </mat-panel-title>
+        <mat-panel-description>
+          Feel Like - {{weather.main.feels_like}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Temperature: {{weather.main.temp}}</p>
+      <p>Maximum Temperature: {{weather.main.temp_max}}</p>
+      <p>Minimum Temperature: {{weather.main.temp_min}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Wind
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      <p>Speed: {{weather.wind.speed}}</p>
+      <p>Degrees: {{weather.wind.deg}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Humidity/ Pressure
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      <p>Humidity: {{weather.main.humidity}}</p>
+      <p>Pressure: {{weather.main.pressure}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          More Information
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      <p>Sunrise: {{weather.sys.sunrise}}</p>
+      <p>Sunset: {{weather.sys.sunset}}</p>
+      <p>Visibility: {{weather.visibility}}</p>
+      <p>Timezone: {{weather.timezone}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

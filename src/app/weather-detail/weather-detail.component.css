@@ -1,0 +1,30 @@
+mat-expansion-panel {
+    margin-top: 30px;
+}
+mat-card {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: none !important;
+}
+h2{
+    font-size: 25px;
+}
+mat-panel-title {
+    font-weight: 500;
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  a{
+      text-decoration: none;
+      margin-bottom: 30px;
+      display: block;
+      font-weight: 500;
+      color: #673ab7;
+  }
+  mat-spinner {
+    position:fixed;
+    top:calc(50% - 50px);
+    left:calc(50% - 50px);
+    z-index:999;
+    }
